@@ -1,6 +1,6 @@
 header{
     width: 100%;
-    background-color: rgb(42, 124, 218);
+    background-color: rgb(77, 68, 68);
     height: 60px;
     position: fixed;
     display: flex;
@@ -10,7 +10,7 @@ body{
     margin: 0;
 }
 #headerLeft{
-    background-color: violet;
+    background-color: rgb(77, 68, 68);
     flex-basis: 20%;
     border-right: 2px solid white;
     display: flex;
@@ -27,7 +27,7 @@ body{
     cursor: pointer;
 }
 #headerRight{
-    background-color: blue;
+     
     flex-basis: 80%;
     display: flex;
     transition: 0.800s ease;
@@ -39,11 +39,11 @@ body{
 }
 #headerRightCenter{
     flex-basis: 60%;
-    background-color: violet;
+     
 }
 #headerRightRight{
     flex-basis: 20%;
-    background-color: red;
+     
 }
 main{
     display: flex;
@@ -82,7 +82,7 @@ aside{
 /*politico*/
 #politico{
 	width:100px;
-	background-color: pink;
+	 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -97,7 +97,7 @@ aside{
 #i1,#i2,#i3{
 width: 7px;
 height: 20px;
-background-color: red;
+background-color: rgb(110, 218, 110);
 display: inline-block;
 }
 #i1{
@@ -436,7 +436,7 @@ a{
         transition: 0.800s ease;     
     }
     #main{
-        background-color: green;
+         
         flex-basis: 100%;
         text-align: center;
         padding-top: 80px;
@@ -450,7 +450,7 @@ a{
         transition: 0.800s ease;
     }
     #headerRight{
-        background-color: blue;
+         
         flex-basis: 100%;
         display: flex;
         transition: 0.800s ease;
