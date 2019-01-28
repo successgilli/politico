@@ -395,7 +395,7 @@ aside{
     #politicoDef{
         flex-direction: column;
     }
-    #home,#Demos,#Pricing,#Admin{
+    #home,#Demos,#Pricing,#Admin,#signSmall{
         display: none;
     }
     #navBarDiv{
