@@ -11,7 +11,7 @@
 <body>
     <header>
         <div id="headerLeft">
-            <a href="./landingPage.html">
+            <a href="./index.html">
                 <div id="politico">
                         <div id="icon">
                             <div id="i1" class="politicoIcon"></div>
@@ -47,19 +47,29 @@
         <div id="modalBackground">
             <div id="modalContent">
                 <form action="" id="loginForm">
-                   <div id="formInputs">
-                        <input type="text" id="loginName" required>
-                        <label for="loginName" id="labelName">Name</label>
-                        <input type="password" id="loginPassword" required>
-                        <label for="loginPassword" id="labelPassword">Password</label>
-
-                   </div>
-                    
-                    <p id="forgotPassword">Forgot your password?</p>
-                    <div id="submitButtonDiv">
-                        <input type="submit" value="Login" id="submitButton">
-                    </div> 
-                    <p id="DontHaveAccount">Dont have an Account?</p>        
+                    <div id="formInputs">
+                         <input type="text" id="loginName" required>
+                         <label for="loginName" id="labelName">Name</label>
+                         <input type="password" id="loginPassword" required>
+                         <label for="loginPassword" id="labelPassword">Password</label>
+ 
+                    </div>
+                     
+                     <p id="forgotPassword">Forgot your password?</p>
+                     <div id="submitButtonDiv">
+                         <input type="submit" value="Login" id="submitButton">
+                     </div> 
+                     <a href="./signup.html"><p id="DontHaveAccount">Don't have an Account?</p></a>         
+                </form>
+            </div>
+        </div>
+        <div id="resetPasswordModalBackground">
+            <div id="resetPasswordContent">
+                <span class="close">+</span>
+                <p>Input your email address</p>
+                <form action="" id="resetPasswordForm">
+                    <input type="email" maxlength="15" id="resetPasswordModalInput">
+                    <input type="submit" value="submit" id="submitResetPassword">
                 </form>
             </div>
         </div>

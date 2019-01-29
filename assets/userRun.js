@@ -9,6 +9,9 @@ let textArea= document.getElementById('campStatement');
 let selectDivs=document.getElementsByTagName('select');
 
 
+window.addEventListener('hashchange',()=>{
+    window.scrollTo(0,window.scrollY-70);
+})
 
 for(i=0;i<selectDivs.length;i++){
     selectDivs[i].addEventListener('focus',(e)=>{

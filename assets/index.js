@@ -5,11 +5,56 @@ let navBar=document.getElementById('navBarDiv');
 let asideModal=document.getElementById('asideModal');
 let aside=document.getElementsByTagName('aside')[0];
 let loginButton=document.getElementById('submitButton');
+let modalContent=document.getElementById('modalContent');
+let loginForm=document.getElementById('loginForm');
+let formInputs=document.getElementById('formInputs');
+let loginName=document.getElementById('loginName');
+let loginPassword=document.getElementById('loginPassword');
+let closeX=document.getElementsByClassName('close');
+let forgotPassword=document.getElementById('forgotPassword');
+let xPoint;
+let ypoint;
+let prevx;
 
+
+window.addEventListener('hashchange',()=>{
+    window.scrollTo(window.scrollX,window.scrollY-70);
+})
+
+forgotPassword.addEventListener('click',()=>{
+    document.getElementById('resetPasswordModalBackground').style.display='flex';
+})
+
+//close forget password popup
+for(i=0;i<closeX.length;i++){
+    closeX[i].addEventListener('click',()=>{
+        resetPasswordModalBackground.style.display='none';
+
+    })
+}
 //go to user page onClick
 loginButton.addEventListener('click',(e)=>{
     e.preventDefault();
     location='./userPage.html';
+})
+modalBackground.addEventListener('click',(e)=>{
+    let target=e.target;
+    console.log(target)
+    //ensure loginForm is not closed when clicked on except the 
+    //click happened on the modal directly
+    if(target===modalBackground){
+        //ensure the loginForm dosnt close when inputs are in the form
+        if(loginName.value.trim()===""&&loginPassword.value.trim()===""){
+            modalBackground.style.display='none';
+            headerCenterDiv.style.backgroundColor='rgb(77, 68, 68)';
+            headerCenterDiv.style.color='grey';
+            //reset the colors of the small screenPage signin Icon when modal is clicked
+            signinDiv.style.backgroundColor='rgb(77, 68, 68)';
+            signinDiv.style.color='grey';
+        }
+        
+    }
+    
 })
 
 navBar.addEventListener('click',()=>{
@@ -50,7 +95,7 @@ headerCenterDiv.addEventListener('click',()=>{
             document.getElementById('modalContent').style.left=headerCenterDiv.offsetLeft+'px';
         }else{
             modalBackground.style.display='none';
-            headerCenterDiv.style.backgroundColor='red';
+            headerCenterDiv.style.backgroundColor='rgb(77, 68, 68)';
             headerCenterDiv.style.color='grey';
         }
 
