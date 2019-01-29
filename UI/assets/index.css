@@ -280,7 +280,7 @@ footer{
 }
 #submitButton{
     outline: 0;
-    background-color: blue;
+    background-color: rgb(66, 182, 228);
     color: white;
     border: 0;
     padding: 10px;
