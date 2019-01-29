@@ -1,6 +1,42 @@
 let headerCenterDiv=document.getElementById('headerCenterDiv');
 let signinDiv=document.getElementById('signinDiv');
 let modalBackground=document.getElementById('modalBackground');
+let loginButton=document.getElementById('submitButton');
+let closeX=document.getElementsByClassName('close');
+let forgotPassword=document.getElementById('forgotPassword');
+let loginName=document.getElementById('loginName');
+let loginPassword=document.getElementById('loginPassword');
+
+
+
+forgotPassword.addEventListener('click',()=>{
+    document.getElementById('resetPasswordModalBackground').style.display='flex';
+})
+
+modalBackground.addEventListener('click',(e)=>{
+    let target=e.target;
+    console.log(target)
+    //ensure loginForm is not closed when clicked on except the 
+    //click happened on the modal directly
+    if(target===modalBackground){
+        //ensure the loginForm dosnt close when inputs are in the form
+        if(loginName.value.trim()===""&&loginPassword.value.trim()===""){
+            modalBackground.style.display='none';
+            headerCenterDiv.style.backgroundColor='rgb(77, 68, 68)';
+            headerCenterDiv.style.color='grey';
+        
+        }
+        
+    }
+    
+})
+
+
+loginButton.addEventListener('click',(e)=>{
+    e.preventDefault();
+    location='./userPage.html';
+})
+
 headerCenterDiv.addEventListener('click',()=>{
     
     if(window.getComputedStyle(modalBackground).getPropertyValue('display')==='none'){

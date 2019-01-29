@@ -7,8 +7,33 @@
  let modalBackground=document.getElementById('modalBackground');
  let statementArrows=document.getElementsByClassName('fa');
 let statementDiv=document.getElementsByClassName('statement');
+let blueBoxLinks=document.getElementsByClassName('menu');
 
- window.addEventListener('scroll',()=>{    
+
+
+for(i=0;i<blueBoxLinks.length;i++){
+    if(i===0){
+        blueBoxLinks[i].addEventListener('click',()=>{
+            location='./userPageVote.html';
+        })
+    }
+    else if(i===1){
+        blueBoxLinks[i].addEventListener('click',()=>{
+            location='./userRun.html';
+        })
+    }
+    else if(i===2){
+        blueBoxLinks[i].addEventListener('click',()=>{
+            location='./userPageResults.html';
+        })
+    }
+}
+
+window.addEventListener('hashchange',()=>{
+    window.scrollTo(0,window.scrollY-70);
+})
+
+window.addEventListener('scroll',()=>{    
         for(i=0;i<asideDiv.length;i++){
             asideDiv[i].style.top=window.pageYOffset+'px';
         }   

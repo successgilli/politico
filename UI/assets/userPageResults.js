@@ -12,11 +12,10 @@ window.addEventListener('scroll',()=>{
        }   
 }) 
 
-window.addEventListener('load',()=>{
-    for(i=0;i<statementArrows.length;i++){
-        statementArrows[i].innerHTML='&#xf107;';    
-    }   
+window.addEventListener('hashchange',()=>{
+    window.scrollTo(0,window.scrollY-70);
 })
+
 window.addEventListener('resize',()=>{
    if(window.innerWidth<=765){
       aside.style.marginLeft='-170px';
