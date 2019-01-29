@@ -1,0 +1,39 @@
+{
+  "name": "politico",
+  "version": "1.0.0",
+  "description": "A simple voting app to vote and be voted",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel src -d dist",
+    "biuld": "npm run start && nodemon ./dist/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/successgilli/politico.git"
+  },
+  "keywords": [
+    "politics",
+    "andela",
+    "election",
+    "vote"
+  ],
+  "author": "Gilbert A.N",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/successgilli/politico/issues"
+  },
+  "homepage": "https://github.com/successgilli/politico#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
