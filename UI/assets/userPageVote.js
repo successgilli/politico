@@ -8,6 +8,12 @@ let modalBackground=document.getElementById('modalBackground');
 let statementArrows=document.getElementsByClassName('fa');
 let statementDiv=document.getElementsByClassName('statement');
 
+
+
+//listen for hashTag clicks
+window.addEventListener('hashchange',()=>{
+    window.scrollTo(0,window.scrollY-70);
+})
 window.addEventListener('scroll',()=>{    
        for(i=0;i<asideDiv.length;i++){
            asideDiv[i].style.top=window.pageYOffset+'px';
