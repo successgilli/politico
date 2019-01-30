@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "biuld": "babel src -d dist",
-    "start": "npm run start && nodemon ./dist/app"
+    "start": "babel src -d dist",
+    "biuld": "npm run start && nodemon ./dist/app"
   },
   "repository": {
     "type": "git",
