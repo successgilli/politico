@@ -1,11 +1,13 @@
-class ValidateParty {
-  static validateParty(req, res, next) {
+class PartyValidators {
+  static validateCreateParty(req, res, next) {
     const errorKeyMessage = 'missing a name key';
     try {
       const keys = Object.keys(req.body);
       const lowerKeys = []; 
       keys.forEach(x => lowerKeys.push(x.toLowerCase()) )
-      if (!(lowerKeys.includes('name')) || !(lowerKeys.includes('hqaddress')) || !(lowerKeys.includes('logourl'))) {
+      if (!(lowerKeys.includes('name')) || 
+      !(lowerKeys.includes('hqaddress')) ||
+      !(lowerKeys.includes('logourl'))) {
         throw new Error(errorKeyMessage);
       } else {
         next();
@@ -19,6 +21,7 @@ class ValidateParty {
       res.json(response);   
     }
   }
+
 }
 
-export default ValidateParty;
+export default PartyValidators;
