@@ -4,7 +4,7 @@
   "description": "A simple voting app to vote and be voted",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --require babel-register",
+    "test": "mocha --exit --require babel-register",
     "biuld": "babel src -d dist",
     "start": "npm run biuld && nodemon ./dist/app"
   },

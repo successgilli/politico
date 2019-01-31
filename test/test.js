@@ -27,15 +27,17 @@ describe('POST: parties', () => {
       res.body.data[0].should.have.property('id');
       res.body.data[0].name.should.be.a('string');
       res.body.data[0].id.should.be.a('number');      
-      done();
-    })  
+      
+    })
+    done();  
   })
   it ('should respond with an error message when keys are not complete', (done)=>{
     chai.request(server).post('/api/v1/parties').send(badData).end((err, res) => {
       res.body.should.have.property('status').eql(400);
       res.should.be.json;
       res.body.should.have.property('error').eql('missing a name key');
-      done();
+      
     })
+    done();
   })
 })
