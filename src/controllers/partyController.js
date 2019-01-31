@@ -31,7 +31,6 @@ class PartyController {
       status: 200,
       data: [{ id: db[db.length - 1].id, name: db[db.length - 1].name }]
     }
-    console.log(db);
     res.json(response);
   }
 //for get specific party route
@@ -42,9 +41,6 @@ class PartyController {
       error: 'Party not found'
     };
     db.forEach((eachPartyInDb, index) => {
-      console.log('start ',eachPartyInDb);
-      console.log(eachPartyInDb.id);
-      console.log('end', req.params.partyId);
       if (eachPartyInDb.id === (parseInt(req.params.partyId,10))) {
         partyIndex = index;
       }

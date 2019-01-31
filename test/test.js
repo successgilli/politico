@@ -15,7 +15,17 @@ const badData = {
 }
 chai.use(chaiHttp);
 describe('POST: parties', () => {
-  it('responed with the nname and id of created party ', (done) => {
+  it ('should respond with an error message when keys are not complete', (done)=>{
+    chai.request(server).post('/api/v1/parties').send(badData).end((err, res) => {
+      res.body.should.have.property('status').eql(400);
+      res.should.be.json;
+      res.body.should.have.property('error').eql('missing a name key');
+      done();
+    })
+    
+  })
+})
+  it('responed with the name and id of created party ', (done) => {
     chai.request(server).post('/api/v1/parties').send(data).end((err, res) => { 
       res.body.status.should.be.equal(200);
       res.should.be.json;
@@ -31,20 +41,19 @@ describe('POST: parties', () => {
     })
       
   })
-  it ('should respond with an error message when keys are not complete', (done)=>{
-    chai.request(server).post('/api/v1/parties').send(badData).end((err, res) => {
-      res.body.should.have.property('status').eql(400);
-      res.should.be.json;
-      res.body.should.have.property('error').eql('missing a name key');
-      done();
-    })
-    
-  })
-})
+  
 // get specific party //
 describe('GET: Specific party', () => {
-  
-  it('responed with the nname, logo url and id of created party ', (done) => {
+  it ('should respond with an error message when party not found', (done)=>{
+    chai.request(server).get('/api/v1/parties/kl').end((err, res) => {
+      res.body.should.have.property('status').eql(400);
+      res.should.be.json;
+      res.body.should.have.property('error').eql('Party not found');
+      done();
+    })
+  })
+})
+  it('responed with the name, logo url and id of created party ', (done) => {
     chai.request(server).get('/api/v1/parties/' + id).end((err, res) => {
       res.body.status.should.be.equal(200);
       res.should.be.json;
@@ -58,23 +67,21 @@ describe('GET: Specific party', () => {
       done();
     })     
   })
-  it ('should respond with an error message when party not found', (done)=>{
-    chai.request(server).get('/api/v1/parties/kl').end((err, res) => {
-      res.body.should.have.property('status').eql(400);
-      res.should.be.json;
-      res.body.should.have.property('error').eql('Party not found');
-      done();
-    })
-    
-  })
   
-})
 //get all parties
 
 for ( let i=0; i<5; i++){
 
   describe('post to /parties', () => {
-    it('ensure posting works with the nname and id of created party ', (done) => {
+    it ('should respond with an error message when keys are not complete', (done)=>{
+      chai.request(server).post('/api/v1/parties').send(badData).end((err, res) => {
+        res.body.should.have.property('status').eql(400);
+        res.should.be.json;
+        res.body.should.have.property('error').eql('missing a name key');
+        done();
+      })     
+    })
+    it('ensure posting works with the name and id of created party ', (done) => {
       chai.request(server).post('/api/v1/parties').send(data).end((err, res) => { 
         res.body.status.should.be.equal(200);
         res.should.be.json;
@@ -82,28 +89,18 @@ for ( let i=0; i<5; i++){
         res.body.should.have.property('data');
         res.body.data[0].should.have.property('name');
         res.body.data[0].should.have.property('id');
-        id = res.body.data[0].id;
-        
+        id = res.body.data[0].id;       
         res.body.data[0].name.should.be.a('string');
         res.body.data[0].id.should.be.a('number');      
         done();
       })       
     })
-    it ('should respond with an error message when keys are not complete', (done)=>{
-      chai.request(server).post('/api/v1/parties').send(badData).end((err, res) => {
-        res.body.should.have.property('status').eql(400);
-        res.should.be.json;
-        res.body.should.have.property('error').eql('missing a name key');
-        done();
-      })
-      
-    })
+    
   })
   // end
 }
 describe('GET: Specific party', () => {
-  
-  it('responed with the nname, logo url and id of created party ', (done) => {
+  it('responed with all parties in the database and corresponding information', (done) => {
     chai.request(server).get('/api/v1/parties/').end((err, res) => {
       res.body.data.should.be.a('array') ; 
       res.should.be.json;
