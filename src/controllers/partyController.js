@@ -2,6 +2,7 @@ import db from '../model/db';
 
 const counter = 1;
 class PartyController {
+  //create party
   static createParty(req, res) {
     let name;
     let hqAddress;
@@ -33,7 +34,7 @@ class PartyController {
     console.log(db);
     res.json(response);
   }
-
+//for get specific party route
   static getSpecificParty(req, res) {
     let partyIndex = 'notFound';
     const errorResponse = {
@@ -66,6 +67,15 @@ class PartyController {
     else {
       res.json(errorResponse);
     }
+  }
+// get all parties
+
+  static getAllParties (req, res) {
+    const response = {
+      status: 200,
+      data: db
+    }
+    res.json(response);
   }
 }
 export default PartyController;
