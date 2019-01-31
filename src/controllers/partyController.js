@@ -2,6 +2,7 @@ import db from '../model/db';
 
 const counter = 1;
 class PartyController {
+  //create party
   static createParty(req, res) {
     let name;
     let hqAddress;
@@ -30,10 +31,9 @@ class PartyController {
       status: 200,
       data: [{ id: db[db.length - 1].id, name: db[db.length - 1].name }]
     }
-    console.log(db);
     res.json(response);
   }
-
+//for get specific party route
   static getSpecificParty(req, res) {
     let partyIndex = 'notFound';
     const errorResponse = {
@@ -41,9 +41,6 @@ class PartyController {
       error: 'Party not found'
     };
     db.forEach((eachPartyInDb, index) => {
-      console.log('start ',eachPartyInDb);
-      console.log(eachPartyInDb.id);
-      console.log('end', req.params.partyId);
       if (eachPartyInDb.id === (parseInt(req.params.partyId,10))) {
         partyIndex = index;
       }
@@ -66,6 +63,15 @@ class PartyController {
     else {
       res.json(errorResponse);
     }
+  }
+// get all parties
+
+  static getAllParties (req, res) {
+    const response = {
+      status: 200,
+      data: db
+    }
+    res.json(response);
   }
 }
 export default PartyController;
