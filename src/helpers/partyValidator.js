@@ -1,5 +1,5 @@
-class ValidateParty {
-  static validateParty(req, res, next) {
+class PartyValidators {
+  static validateCreateParty(req, res, next) {
     const errorKeyMessage = 'missing a name key';
     try {
       const keys = Object.keys(req.body);
@@ -19,6 +19,7 @@ class ValidateParty {
       res.json(response);   
     }
   }
+
 }
 
-export default ValidateParty;
+export default PartyValidators;

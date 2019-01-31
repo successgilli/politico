@@ -1,10 +1,10 @@
 import express from 'express';
-import CreatePary from '../controllers/partyController';
-import ValidateParty from '../helpers/partyValidator';
+import PartyController from '../controllers/partyController';
+import PartyValidators from '../helpers/partyValidator';
 
-const { validateParty } = ValidateParty; 
-const { createParty } = CreatePary; 
+const { validateCreateParty } = PartyValidators; 
+const { createParty, getSpecificParty } = PartyController; 
 const route = express.Router();
-route.post('/parties', validateParty, createParty);
-
+route.post('/parties', validateCreateParty, createParty);
+route.get('/parties/:partyId', getSpecificParty);
 export default route;
