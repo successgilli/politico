@@ -5,7 +5,9 @@ class PartyValidators {
       const keys = Object.keys(req.body);
       const lowerKeys = []; 
       keys.forEach(x => lowerKeys.push(x.toLowerCase()) )
-      if (!(lowerKeys.includes('name')) || !(lowerKeys.includes('hqaddress')) || !(lowerKeys.includes('logourl'))) {
+      if (!(lowerKeys.includes('name')) || 
+      !(lowerKeys.includes('hqaddress')) ||
+      !(lowerKeys.includes('logourl'))) {
         throw new Error(errorKeyMessage);
       } else {
         next();

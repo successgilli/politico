@@ -3,8 +3,6 @@ import chaiHttp from 'chai-http';
 import server from '../src/app';
 
 let id;
-const { expect } = chai.expect;
-const { assert } = chai.assert;
 const should = chai.should();
 const data = {
   name: 'gilbert',
