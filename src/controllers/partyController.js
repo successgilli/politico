@@ -73,5 +73,34 @@ class PartyController {
     }
     res.json(response);
   }
+
+  static editPartyName(req, res) {
+    let partyIndex = 'not found';
+    db.forEach((eachParty, index) => {
+      if (eachParty.id === parseInt(req.params.partyId, 10)) {
+        partyIndex = index;
+      }         
+    })
+    if (typeof partyIndex === 'number') {
+      db[partyIndex].name = req.params.name;
+      let response = {
+        status: 201,
+        data: [
+          {
+            db: db[partyIndex].id,
+            name: db[partyIndex].name
+          }
+        ]
+      }
+      res.json(response);
+    }
+    else {
+      const response = {
+        status: 400,
+        error: 'not found'
+      };
+      res.json(response);
+    } 
+  }
 }
 export default PartyController;

@@ -22,6 +22,46 @@ class PartyValidators {
     }
   }
 
+  static validateEditNameOfParty(req, res, next) {
+    let checkFailure = 'false';
+    let response;
+    if ( isNaN(req.params.partyId) ) {
+      response = {
+        status: 400,
+        error: 'id invalid'
+      };
+      checkFailure = 'true';
+    }
+    else if (!Number.isInteger(Number(req.params.partyId))){
+      response = {
+        status: 400,
+        error: 'id should be integer number'
+      };
+      checkFailure = 'true';    
+    }
+    else if (typeof req.params.name === 'string' ){
+      for (let i=0; i<req.params.name.length; i++) {
+        if ( !isNaN(parseInt(req.params.name.charAt(i), 10))) {
+          response = {
+            status: 400,
+            error: 'name should be only string'
+          };
+          checkFailure = 'true';
+        }
+      }
+    }
+    
+    if (checkFailure === 'true'){
+      
+      res.status(400).json(response);
+    }
+    else {
+      next();
+    }
+    
+    
+  }
+
 }
 
 export default PartyValidators;
