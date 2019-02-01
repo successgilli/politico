@@ -14,6 +14,6 @@ route.get('/parties/:partyId', getSpecificParty);
 route.get('/parties/', getAllParties);
 route.patch('/parties/:partyId/:name', validateEditNameOfParty, editPartyName);
 route.delete('/parties/:partyId', validateDeleteParty, deletePartyName);
-route.post('/office', validateCreateOffice, createOffice);
+route.post('/offices', validateCreateOffice, createOffice);
 
 export default route;

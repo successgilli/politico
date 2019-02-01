@@ -5,10 +5,8 @@ class OfficeValidators {
       try {
         const keys = Object.keys(req.body);
         const lowerKeys = []; 
-        keys.forEach(x => lowerKeys.push(x.toLowerCase()) )
-       
-        if (!(lowerKeys.includes('id')) || 
-        !(lowerKeys.includes('type')) ||
+        keys.forEach(x => lowerKeys.push(x.toLowerCase()) )  
+        if (!(lowerKeys.includes('type')) ||
         !(lowerKeys.includes('name'))) {
           throw new Error(errorKeyMessage);
         } 
