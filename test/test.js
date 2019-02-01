@@ -10,6 +10,11 @@ const data = {
   hqAddress: 'somewhere',
   logoUrl: 'somethingLikeThat'
 };
+const officeData = {
+  name: 'gilbert',
+  type: 'somewhere',
+};
+
 const badData = {
   hqAddress: 'somewhere',
   logoUrl: 'somethingLikeThat'
@@ -172,7 +177,4 @@ describe('DELETE: party', () => {
       done();
     })     
   })
-  
-  
 })
-

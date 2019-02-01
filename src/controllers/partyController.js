@@ -67,9 +67,15 @@ class PartyController {
 // get all parties
 
   static getAllParties (req, res) {
+    let dbParty = [];
+    db.forEach((item, index) => {
+      if (item.hasOwnProperty('logoUrl')){
+        dbParty.push(db[index]);
+      }
+    })
     const response = {
       status: 200,
-      data: db
+      data: dbParty
     }
     res.json(response);
   }
