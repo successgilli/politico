@@ -44,6 +44,37 @@ class OfficeController {
     }
     res.json(response);
   }
+  // for get specific office route
+  static getSpecificOffice(req, res) {
+    let officeIndex = 'notFound';
+    const errorResponse = {
+      status: 400,
+      error: 'Office not found'
+    };
+    db.forEach((eachOfficeInDb, index) => {
+      if (eachOfficeInDb.id === (parseInt(req.params.officeId,10))) {
+        officeIndex = index;
+      }
+    })
+  
+    if ( isNaN(req.params.officeId) || !db[officeIndex] ){
+      res.json(errorResponse);
+    }
+    else if ( parseInt(req.params.officeId, 10) === db[officeIndex].id) {
+      const response = {
+        status: 200,
+        data: [{ id: db[officeIndex].id,
+          type: db[officeIndex].type,
+          name: db[officeIndex].name
+        }
+        ]
+      }
+      res.json(response)
+    }
+    else {
+      res.json(errorResponse);
+    }
+  }
 }
 
 export default OfficeController;
