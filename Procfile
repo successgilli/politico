@@ -1,1 +1,1 @@
-web: npm run biuld && node ./dist/app
+web: node ./dist/app.js
