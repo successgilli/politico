@@ -73,7 +73,7 @@ class PartyController {
     }
     res.json(response);
   }
-
+//edit party name
   static editPartyName(req, res) {
     let partyIndex = 'not found';
     db.forEach((eachParty, index) => {
@@ -98,6 +98,34 @@ class PartyController {
       const response = {
         status: 404,
         error: 'not found'
+      };
+      res.status(404).json(response);
+    } 
+  }
+  // delete party
+  static deletePartyName(req, res) {
+    let partyIndex = 'not found';
+    db.forEach((eachParty, index) => {
+      if (eachParty.id === parseInt(req.params.partyId, 10)) {
+        partyIndex = index;
+      }         
+    })
+    if (typeof partyIndex === 'number') {
+      db.splice(partyIndex, 1);
+      let response = {
+        status: 200,
+        data: [
+          {
+            message: 'successfully deleted'
+          }
+        ]
+      }
+      res.status(200).json(response);
+    }
+    else {
+      const response = {
+        status: 404,
+        error: 'party not found'
       };
       res.status(404).json(response);
     } 

@@ -145,4 +145,34 @@ describe('PATCH: edit party name', () => {
   
   
 })
+// DELETE party
+describe('DELETE: party', () => {
+  it('should responed with an error message if id contains character', (done) => {
+    chai.request(server).delete('/api/v1/parties/29769g8').end((err, res) => {
+      res.body.should.have.property('error').eql('id invalid');
+      done();
+    })     
+  })
+  it('should responed with an error message if id is float', (done) => {
+    chai.request(server).delete('/api/v1/parties/29769.8').end((err, res) => {
+      res.body.should.have.property('error').eql('id should be integer number');
+      done();
+    })     
+  })
+  it('should responed with an error message if id not found', (done) => {
+    chai.request(server).delete('/api/v1/parties/429769').end((err, res) => {
+      res.body.should.have.property('error').eql('party not found');
+      done();
+    })     
+  })
+  it('should responed with the edited party', (done) => {
+    chai.request(server).delete('/api/v1/parties/' + id).end((err, res) => {
+      res.body.should.have.property('data');
+      res.body.data[0].message.should.equal("successfully deleted");
+      done();
+    })     
+  })
+  
+  
+})
 
