@@ -111,7 +111,7 @@ class PartyController {
       }         
     })
     if (typeof partyIndex === 'number') {
-      db.splice(partyIndex,1);
+      db.splice(partyIndex, 1);
       let response = {
         status: 200,
         data: [
