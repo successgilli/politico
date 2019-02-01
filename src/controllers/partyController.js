@@ -84,7 +84,7 @@ class PartyController {
     if (typeof partyIndex === 'number') {
       db[partyIndex].name = req.params.name;
       let response = {
-        status: 201,
+        status: 200,
         data: [
           {
             db: db[partyIndex].id,
