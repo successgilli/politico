@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha --exit --require babel-register",
-    "biuld": "babel src -d dist",
-    "start": "npm run biuld && node ./dist/app"
+    "build": "babel src -d dist",
+    "start": "npm run biuld && nodemon ./dist/app"
   },
   "repository": {
     "type": "git",
