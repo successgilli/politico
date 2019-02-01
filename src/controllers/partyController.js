@@ -125,7 +125,7 @@ class PartyController {
     else {
       const response = {
         status: 404,
-        error: 'party id for the party to be deleted not found'
+        error: 'party not found'
       };
       res.status(404).json(response);
     } 
