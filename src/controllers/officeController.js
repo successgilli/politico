@@ -29,6 +29,21 @@ class OfficeController {
     console.log(db);
     res.json(response);
   }
+  // get all offices
+
+  static getAllOffices (req, res) {
+    let dbOffice = [];
+    db.forEach((item, index) => {
+      if (item.hasOwnProperty('type')){
+        dbOffice.push(db[index]);
+      }
+    })
+    const response = {
+      status: 200,
+      data: dbOffice
+    }
+    res.json(response);
+  }
 }
 
 export default OfficeController;
