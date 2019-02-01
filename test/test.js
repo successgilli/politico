@@ -161,7 +161,7 @@ describe('DELETE: party', () => {
   })
   it('should responed with an error message if id not found', (done) => {
     chai.request(server).delete('/api/v1/parties/429769').end((err, res) => {
-      res.body.should.have.property('error').eql('not found');
+      res.body.should.have.property('error').eql('party id for the party to be deleted not found');
       done();
     })     
   })
