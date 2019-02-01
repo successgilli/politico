@@ -129,7 +129,7 @@ describe('PATCH: edit party name', () => {
     })     
   })
   it('should responed with an error message if id not found', (done) => {
-    chai.request(server).patch('/api/v1/parties/222222229769/bearsManyyy').end((err, res) => {
+    chai.request(server).patch('/api/v1/parties/429769/bearsManyyy').end((err, res) => {
       res.body.should.have.property('error').eql('not found');
       done();
     })     
@@ -137,6 +137,7 @@ describe('PATCH: edit party name', () => {
   it('should responed with the edited party', (done) => {
     chai.request(server).patch('/api/v1/parties/' + id + '/bearsManyyy').end((err, res) => {
       res.body.should.have.property('data');
+      console.log(res.body.data)
       res.body.data[0].name.should.equal("bearsManyyy");
       done();
     })     

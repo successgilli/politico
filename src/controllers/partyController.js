@@ -96,10 +96,10 @@ class PartyController {
     }
     else {
       const response = {
-        status: 204,
+        status: 404,
         error: 'not found'
       };
-      res.status(204).json(response);
+      res.status(404).json(response);
     } 
   }
 }
