@@ -2,15 +2,15 @@ import db from '../model/db';
 
 const counter = 1;
 class PartyController {
-  //create party
+  // create party
   static createParty(req, res) {
     let name;
     let hqAddress;
     let logoUrl;
     const keys = Object.keys(req.body); 
-    keys.forEach(keyFromUser => { 
+    keys.forEach((keyFromUser) => { 
       
-      if(keyFromUser.toLowerCase() === 'name'){
+      if (keyFromUser.toLowerCase() === 'name') {
         name = req.body[keyFromUser];
       }
       if(keyFromUser.toLowerCase() === 'hqaddress'){
@@ -33,7 +33,7 @@ class PartyController {
     }
     res.json(response);
   }
-//for get specific party route
+// for get specific party route
   static getSpecificParty(req, res) {
     let partyIndex = 'notFound';
     const errorResponse = {
@@ -79,7 +79,7 @@ class PartyController {
     }
     res.json(response);
   }
-//edit party name
+// edit party name
   static editPartyName(req, res) {
     let partyIndex = 'not found';
     db.forEach((eachParty, index) => {
