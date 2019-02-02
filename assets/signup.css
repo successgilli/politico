@@ -219,7 +219,7 @@ display: inline-block;
     cursor: pointer;
     border: 0;
     border-radius: 3px;
-    background-color: rgb(42, 124, 218);
+    background-color: rgb(66, 182, 228);
 }
 #submitSignup:hover{
     color: white;
@@ -286,9 +286,7 @@ footer{
     background-color: rgb(66, 182, 228);
     text-align: center;
 }
-#footerh5{
-    margin-top: 0;
-}
+
 #footerpelem{
     margin-bottom: 0;
 }
@@ -331,7 +329,7 @@ footer{
 }
 #submitButton{
     outline: 0;
-    background-color: blue;
+    background-color: rgb(66, 182, 228);
     color: white;
     border: 0;
     padding: 10px;
@@ -375,6 +373,11 @@ footer{
 }
 a{
     text-decoration: none;
+}
+@media(max-width:879px){
+    #footerh5{
+        margin-top: 0;
+    }
 }
 @media(max-width:768px){
     #signupForm{
