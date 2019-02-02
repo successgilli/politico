@@ -17,5 +17,6 @@ route.delete('/parties/:partyId', validateDeleteParty, deletePartyName);
 route.post('/offices', validateCreateOffice, createOffice);
 route.get('/offices', getAllOffices);
 route.get('/offices/:officeId', getSpecificOffice);
+// challenge 2 completed
 
 export default route;
