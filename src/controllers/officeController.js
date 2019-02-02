@@ -57,7 +57,7 @@ class OfficeController {
         officeIndex = index;
       }
     })
-    if ( isNaN(req.params.officeId) || !db[officeIndex] ) {
+    if ( isNaN (req.params.officeId) || !db[officeIndex] ) {
       res.json(errorResponse);
     }
     else if ( parseInt(req.params.officeId, 10) === db[officeIndex].id) {
