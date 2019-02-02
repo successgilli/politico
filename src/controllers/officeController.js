@@ -2,21 +2,21 @@ import db from '../model/db';
 
 const counter = 1;
 class OfficeController {
-  //create office
+  // create office
   static createOffice(req, res) {
     let name;
     let type;
     const keys = Object.keys(req.body); 
-    keys.forEach(keyFromUser => { 
-      
-      if(keyFromUser.toLowerCase() === 'name'){
+    keys.forEach((keyFromUser) => { 
+      if (keyFromUser.toLowerCase() === 'name') {
         name = req.body[keyFromUser];
       }
-      if(keyFromUser.toLowerCase() === 'type'){
+      if (keyFromUser.toLowerCase() === 'type') {
         type = req.body[keyFromUser];
-      }} )
-    let random = Math.floor((Math.random() * 100000) + counter);
-    let office = {
+      }
+    })
+    const random = Math.floor((Math.random() * 100000) + counter);
+    const office = {
       id: random,
       name,
       type, 
@@ -31,19 +31,20 @@ class OfficeController {
   }
   // get all offices
 
-  static getAllOffices (req, res) {
-    let dbOffice = [];
+  static getAllOffices(req, res) {
+    const dbOffice = [];
     db.forEach((item, index) => {
-      if (item.hasOwnProperty('type')){
+      if (item.hasOwnProperty('type')) {
         dbOffice.push(db[index]);
       }
     })
     const response = {
       status: 200,
-      data: dbOffice
+      data: dbOffice,
     }
     res.json(response);
   }
+
   // for get specific office route
   static getSpecificOffice(req, res) {
     let officeIndex = 'notFound';
@@ -56,8 +57,7 @@ class OfficeController {
         officeIndex = index;
       }
     })
-  
-    if ( isNaN(req.params.officeId) || !db[officeIndex] ){
+    if ( isNaN(req.params.officeId) || !db[officeIndex] ) {
       res.json(errorResponse);
     }
     else if ( parseInt(req.params.officeId, 10) === db[officeIndex].id) {
@@ -66,7 +66,7 @@ class OfficeController {
         data: [{ id: db[officeIndex].id,
           type: db[officeIndex].type,
           name: db[officeIndex].name
-        }
+        },
         ]
       }
       res.json(response)

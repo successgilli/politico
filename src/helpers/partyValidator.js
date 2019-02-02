@@ -17,12 +17,13 @@ class PartyValidators {
     catch (err) {
       const response = {
         status: 400,
-        error: errorKeyMessage
+        error: errorKeyMessage,
       };
       res.json(response);   
     }
   }
-// edit party
+
+  // edit party
   static validateEditNameOfParty(req, res, next) {
     let checkFailure = 'false';
     let response;
@@ -33,14 +34,14 @@ class PartyValidators {
       };
       checkFailure = 'true';
     }
-    else if (!Number.isInteger(Number(req.params.partyId))){
+    else if (!Number.isInteger(Number(req.params.partyId))) {
       response = {
         status: 400,
         error: 'id should be integer number'
       };
       checkFailure = 'true';    
     }
-    else if (typeof req.params.name === 'string' ){
+    else if (typeof req.params.name === 'string' ) {
       for (let i=0; i<req.params.name.length; i++) {
         if ( !isNaN(parseInt(req.params.name.charAt(i), 10))) {
           response = {
@@ -52,14 +53,14 @@ class PartyValidators {
       }
     }
     
-    if (checkFailure === 'true'){
-      
+    if (checkFailure === 'true') {
       res.status(400).json(response);
     }
     else {
       next();
     }   
   }
+
   // delete party
   static validateDeleteParty(req, res, next) {
     let checkFailure = 'false';
@@ -71,14 +72,14 @@ class PartyValidators {
       };
       checkFailure = 'true';
     }
-    else if (!Number.isInteger(Number(req.params.partyId))){
+    else if (!Number.isInteger(Number(req.params.partyId))) {
       response = {
         status: 400,
         error: 'id should be integer number'
       };
       checkFailure = 'true';    
     }
-    else if (typeof req.params.name === 'string' ){
+    else if (typeof req.params.name === 'string' ) {
       for (let i=0; i<req.params.name.length; i++) {
         if ( !isNaN(parseInt(req.params.name.charAt(i), 10))) {
           response = {
@@ -88,17 +89,13 @@ class PartyValidators {
           checkFailure = 'true';
         }
       }
-    }
-    
-    if (checkFailure === 'true'){
-      
+    }  
+    if (checkFailure === 'true') {   
       res.status(400).json(response);
     }
     else {
       next();
     }
   }
-
 }
-
 export default PartyValidators;
