@@ -192,7 +192,7 @@ display: inline-block;
 }
 /*politico ends*/
 footer{
-    background-color: rgb(42, 124, 218);
+    background-color: rgb(66, 182, 228);
     text-align: center;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -236,7 +236,7 @@ a{
 .menu{ 
     width:30%;
     height: 100px;
-    background-color:blue;
+    background-color: rgb(66, 182, 228);
     color: white;
     border-radius: 7px;
     display: flex;
