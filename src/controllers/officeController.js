@@ -1,4 +1,5 @@
 import db from '../model/db';
+import pdb from '../model/query';
 
 const counter = 1;
 class OfficeController {
@@ -29,8 +30,29 @@ class OfficeController {
     console.log(db);
     res.json(response);
   }
-  // get all offices
 
+  // get all offices
+  static getAll(req, res) {
+    const text = 'SELECT * FROM parties';
+    pdb(text, (err, result)=> {
+      if (err) {
+        throw err;
+      }
+      console.log('collecting from parties');
+      res.json(result.rows);
+  })
+  }
+
+  static insertParty(req, res) {
+    const text = 'INSERT INTO parties (name, logo) VALUES ($1,$2)';
+    const param =[req.body.name,req.body.logo];
+    pdb(text,param, (err, result)=>{
+      if (err) {
+        throw err;
+      }
+      res.json('successful');
+    })
+  }
   static getAllOffices(req, res) {
     const dbOffice = [];
     db.forEach((item, index) => {
