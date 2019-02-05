@@ -1,9 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import route from './router/routes';
+import createTables from './model/migrations'
 
 const app = express();
-
+createTables();
 const port = process.env.PORT || 8080 ;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

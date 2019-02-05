@@ -6,7 +6,9 @@
   "scripts": {
     "test": "mocha --exit --require babel-register",
     "build": "babel src -d dist",
-    "start": "npm run build && node ./dist/app"
+    "start": "npm run build && node ./dist/app",
+    "coverage": "node node_modules/.bin/istanbul cover _mocha -- -R spec",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
@@ -37,9 +39,11 @@
     "pg": "^7.8.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "eslint": "^5.12.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0"
+    "eslint-plugin-import": "^2.16.0",
+    "istanbul": "^0.4.5"
   }
 }
