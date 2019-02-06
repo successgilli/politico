@@ -3,6 +3,9 @@ import pdb from '../model/query';
 class OfficeController {
   // create office
   static createOffice(req, res) {
+   /* if (req.userData !== true) {
+      res.status(401).json('unauthorised');
+    }*/
     const { name, type } = req.body;
     const text = 'INSERT INTO offices (name, type) VALUES ($1,$2) RETURNING *';
     const param = [name, type];
