@@ -3,6 +3,7 @@
     
     "rules": {
         "no-undef":"warn",
-        "no-plusplus":"warn"
+        "no-plusplus":"warn",
+        "linebreak-style":"off"
     }
 }
