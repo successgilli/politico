@@ -19,6 +19,18 @@ class UserValidators {
       next();
     }
   }
+
+  static validateUserlogin(req, res, next) {
+    const {
+      email,
+      password,
+    } = req.body;
+    if (email.trim() === '' || password.trim() === '') {
+      res.status(400).json('no input field should be empty');
+    } else {
+      next();
+    }
+  }
 }
 
 export default UserValidators;
