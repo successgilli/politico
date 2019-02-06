@@ -51,8 +51,7 @@ class PartyValidators {
           checkFailure = 'true';
         }
       }
-    }
-    
+    }   
     if (checkFailure === 'true') {
       res.status(400).json(response);
     }
@@ -75,11 +74,11 @@ class PartyValidators {
     else if (!Number.isInteger(Number(req.params.partyId))) {
       response = {
         status: 400,
-        error: 'id should be integer number'
+        error: 'id should be integer number',
       };
-      checkFailure = 'true';    
+      checkFailure = 'true';
     }
-    else if (typeof req.params.name === 'string' ) {
+    else if (typeof req.params.name === 'string') {
       for (let i=0; i<req.params.name.length; i++) {
         if ( !isNaN(parseInt(req.params.name.charAt(i), 10))) {
           response = {

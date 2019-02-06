@@ -13,19 +13,20 @@ const officeTable = `CREATE TABLE IF NOT EXISTS offices (
     name VARCHAR(20) NOT NULL
 );`;
 
-/* const userTable = `CREATE TABLE IF NOT EXISTS users (
+const userTable = `CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY NOT NULL,
     firstName VARCHAR(20) NOT NULL,
     lastName VARCHAR(20) NOT NULL,
+    hashedPassword VARCHAR(100) NOT NULL,
     otherName VARCHAR(20) NOT NULL,
     email VARCHAR(30) NOT NULL UNIQUE,
     phoneNumber VARCHAR(11) NOT NULL,
     passportUrl VARCHAR(255) NOT NULL,
     isAdmin BOOLEAN DEFAULT false
-);`; */
+);`; 
 
 const createTables = () => {
-  pdb(`${officeTable} ${partyTable}`, ()=>{
+  pdb(`${officeTable} ${partyTable} ${userTable}`, ()=>{
     console.log('table created');
   })
 };
