@@ -4,7 +4,7 @@
   "description": "A simple voting app to vote and be voted",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --exit --require babel-register",
+    "test": "mocha --timeout 3000 --exit --require babel-register",
     "build": "babel src -d dist",
     "start": "npm run build && node ./dist/app",
     "coverage": "node node_modules/.bin/istanbul cover _mocha -- -R spec",

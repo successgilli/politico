@@ -3,7 +3,10 @@ language: node_js
 node_js:
     - 8
     - node
-
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
 script:
     - npm test
     - npm run coverage
