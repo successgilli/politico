@@ -7,8 +7,7 @@
     "test": "mocha --timeout 3000 --exit --require babel-register",
     "build": "babel src -d dist",
     "start": "npm run build && node ./dist/app",
-    "coverage": "node node_modules/.bin/istanbul cover _mocha -- -R spec",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -46,6 +45,7 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "istanbul": "^0.4.5"
+    "istanbul": "^0.4.5",
+    "nyc": "^13.2.0"
   }
 }
