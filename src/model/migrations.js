@@ -25,8 +25,17 @@ const userTable = `CREATE TABLE IF NOT EXISTS users (
     isAdmin BOOLEAN DEFAULT false
 );`; 
 
+const candidateTable = `CREATE TABLE IF NOT EXISTS candidates (
+     id serial,
+     candidateName VARCHAR(100) NOT NULL,
+     userId integer NOT NULL,
+     partyId integer NOT NULL,
+     officeId integer NOT NULL,
+    candidateId integer NOT NULL,
+    PRIMARY KEY (officeId, userId)
+);`;
 const createTables = () => {
-  pdb(`${officeTable} ${partyTable} ${userTable}`, ()=>{
+  pdb(`${officeTable} ${partyTable} ${userTable} ${candidateTable}`, ()=>{
     console.log('table created');
   })
 };

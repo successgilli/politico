@@ -59,7 +59,7 @@ class UserController {
     try {
       const {
         email,
-        password
+        password,
       } = req.body;
       const text = 'SELECT * FROM users WHERE email = $1';
       const param = [email];
@@ -72,11 +72,10 @@ class UserController {
           // eslint-disable-next-line no-lonely-if
           if (passwordHash.verify(password, result.rows[0].hashedpassword)) {
             const user = {
-              firstname: result.rows[0].firstname,
-              email: result.rows[0].email,
-              id: result.rows[0].id,
+              isAdmin: result.rows[0].isadmin,
             };
-            jwt.sign({ user }, 'secretekey', (err, token) => {
+            console.log(result.rows[0].isadmin,'GERGER')
+            jwt.sign(user, process.env.SECRETE_KEY, (err, token) =>{
               const response = {
                 status: 200,
                 data: [{

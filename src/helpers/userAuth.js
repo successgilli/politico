@@ -9,7 +9,7 @@ const verifyToken = (req, res, next) => {
     req.token = bearerToken;
     console.log(req.token);
     jwt.verify(req.token, process.env.SECRETE_KEY, (err, result) => {
-        console.log(err);
+      console.log(err);
       if (err) res.status(401).json('unauthorised2');
       else {
         req.result = result.isAdmin;
