@@ -5,7 +5,7 @@ class PartyController {
   static createParty(req, res) {
     const { name, logoUrl, hqAddress } = req.body;
     const text = 'INSERT INTO parties (name, hqAddress, logoUrl) VALUES ($1,$2,$3) RETURNING *';
-    const param = [name, logoUrl, hqAddress];
+    const param = [name, hqAddress, logoUrl];
     pdb(text, param, (err, result) => {
       if (err) {
         throw err;

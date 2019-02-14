@@ -69,7 +69,9 @@ class UserController {
         } else if (result.rowCount === 0) {
           res.status(200).json('you have not registered yet');
         } else {
-          // eslint-disable-next-line no-lonely-if
+          // eslint-disable-next-line no-lonely-if]cinsl
+          console.log(typeof result.rows[0].hashedpassword)
+          console.log(password)
           if (passwordHash.verify(password, result.rows[0].hashedpassword)) {
             const user = {
               isAdmin: result.rows[0].isadmin,
@@ -86,7 +88,7 @@ class UserController {
               res.status(200).json(response);
             });
           } else {
-            res.status(200).json('invalid password');
+            res.status(201).json('invalid password');
           }
         }
       });

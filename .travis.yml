@@ -12,5 +12,5 @@ script:
 after_success:
   - npm install nyc
   - npm install coveralls
-  - npm run coveralls
+  - npm run coverage
    

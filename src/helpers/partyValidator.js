@@ -9,17 +9,19 @@ class PartyValidators {
       if (!(lowerKeys.includes('name')) || 
       !(lowerKeys.includes('hqaddress')) ||
       !(lowerKeys.includes('logourl'))) {
+        
         throw new Error(errorKeyMessage);
       } else {
         next();
       }
     }
     catch (err) {
+      console.log(err)
       const response = {
-        status: 400,
+        status: 401,
         error: errorKeyMessage,
       };
-      res.json(response);   
+      res.status(400).json(response);   
     }
   }
 

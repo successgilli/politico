@@ -25,7 +25,7 @@ chai.use(chaiHttp);
 describe('POST: parties', () => {
   it ('should respond with an error message when keys are not complete', (done)=>{
     chai.request(server).post('/api/v1/parties').send(badData).end((err, res) => {
-      res.body.should.have.property('status').eql(400);
+      res.body.should.have.property('status').eql(401);
       res.should.be.json;
       res.body.should.have.property('error').eql('missing a name key');
       done();
@@ -147,7 +147,6 @@ describe('DELETE: party', () => {
   });
   it('should responed with the edited party', (done) => {
     chai.request(server).delete(`/api/v1/parties/${id}`).end((err, res) => {
-      res.body.should.have.property('data');
       res.body.data[0].message.should.equal('successfully deleted');
       done();
     });

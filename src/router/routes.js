@@ -6,7 +6,6 @@ import UserValidator from '../helpers/userValidator';
 import OfficeController from '../controllers/officeController';
 import OfficeValidators from '../helpers/officeValidator';
 import UserController from '../controllers/userController';
-import verifyToken from '../helpers/userAuth';
 import CandidateController from '../controllers/candidateController';
 import CandidateValidators from '../helpers/candidateValidator';
 
@@ -25,7 +24,7 @@ route.get('/parties/:partyId', getSpecificParty);
 route.get('/parties/', getAllParties);
 route.patch('/parties/:partyId/:name', validateEditNameOfParty, editPartyName);
 route.delete('/parties/:partyId', validateDeleteParty, deletePartyName);
-route.post('/offices', validateCreateOffice, verifyToken, createOffice);
+route.post('/offices', validateCreateOffice, createOffice);
 route.get('/offices', getAllOffices);
 route.get('/offices/:officeId', getSpecificOffice);
 route.post('/auth/signup', validateUserSignup, signUp);
