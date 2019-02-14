@@ -8,7 +8,7 @@
     "build": "babel src -d dist",
     "start": "npm run build && node ./dist/app",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info || coveralls"
   },
   "repository": {
     "type": "git",
